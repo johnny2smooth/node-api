@@ -4,7 +4,7 @@ const router = Router();
 // Product
 router.get("/product", (req, res) => {
   res.json({
-    hello: "GET status???",
+    hello: "You're valid af",
   });
 });
 router.get("/product/:id-:name", (req, res) => {
