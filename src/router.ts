@@ -7,7 +7,10 @@ router.get("/product", (req, res) => {
     hello: "GET status???",
   });
 });
-router.get("/product/:id", () => {});
+router.get("/product/:id-:name", (req, res) => {
+  console.log(req.params);
+  res.json(req.params);
+});
 router.put("/product/:id", () => {});
 router.post("/product", () => {});
 router.delete("/product/:id", () => {});
@@ -27,5 +30,9 @@ router.get("/update-point/:id", () => {});
 router.put("/update-point/:id", () => {});
 router.post("/update-point", () => {});
 router.delete("/update-point/:id", () => {});
+
+router.get("/testing/:firstName-:lastName", (req, res) => {
+  const { firstName, lastName } = req.params;
+});
 
 export default router;
