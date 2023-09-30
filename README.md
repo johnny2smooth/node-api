@@ -87,3 +87,27 @@ req.params: { "genus": "Prunus", "species": "persica" }
 ```
 
 I don't really know what is going on with `app.param`. I will look into that later
+
+## Authentication
+
+### JWT
+
+So we make the token... That's cool and all. But what is coolest so far is that we are setting up protection with our /api route. We don't want anyone just willy nilly getting access to our stuff! No. So everything _BEFORE_ the routers get hit will have to go through our protector first.
+
+Initially, we were only passing the router Class that we had instantiated earlier to be used when anything after `/api` was hit.
+
+```js
+app.use("/api", router);
+```
+
+But now we will pass in the protector here as further middleware! The protect function will reject anything without a bearer token, as we've set it up so far. I just tried to run a `GET` request to my `/api/product` endpoint, but now I am getting back a message that tells me I am not allowed. SICKKKK.
+
+```js
+app.use("/api", protect, router);
+```
+
+## Headers
+
+Headers are metadata. We can put what we want there, and authorization lives there.
+
+## Creating a JWT

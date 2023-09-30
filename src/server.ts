@@ -2,6 +2,7 @@ import express from "express";
 import path from "node:path";
 import router from "./router";
 import morgan from "morgan";
+import { protect } from "./modules/auth";
 const app = express();
 
 app.use(morgan("dev"));
@@ -15,6 +16,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve("src/pages/index.html"));
 });
 
-app.use("/api", router);
+app.use("/api", protect, router);
 
 export default app;
