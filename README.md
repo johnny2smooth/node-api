@@ -111,3 +111,7 @@ app.use("/api", protect, router);
 Headers are metadata. We can put what we want there, and authorization lives there.
 
 ## Creating a JWT
+
+Authentication does not have to be difficult. We protect our paths with some middleware, then we open those paths up to people with the right credentials. For us, the 'right credentials' means a JSON Web Token (JWT). But we only give away the JWT under certain circumstances. The user has to initially earn a token by creating an account with us. They can also earn a token by signing in. These are the two entrances that we have opened up so far that will allow a user to get access to our API.
+
+I am thinking of JWT as a 🔑 to our locked-down API. So far, we have created two doors for the JWT to pass through. So far, we are encoding the `user.id` and `user.username` into the JWT. We should strive to keep the JWT as short as possible, but we can also store more information there, like `user.role` if we had that.
